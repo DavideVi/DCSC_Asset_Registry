@@ -6,8 +6,13 @@ html
     link(rel='stylesheet', href='/stylesheets/global.css')
   body
     nav.navbar.navbar-default
-      div.container-fluid
-        div.navbar-header
+      .container-fluid(style="max-width: 1000px")
+        .navbar-header
           a.navbar-brand(href="#")
-            img(src="/images/logo_blue.png", style="height: 30px;")
-    block content
+            img(src="/images/logo_initials.png", style="height: 26px;")
+        .navbar-form.navbar-right  
+          div.navbar-header
+            button.btn.btn-primary Feedback
+            button.btn.btn-success(style="margin-left: 5px") Add an asset
+    #content
+      block content
