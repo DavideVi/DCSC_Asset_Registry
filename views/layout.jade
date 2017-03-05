@@ -8,11 +8,25 @@ html
     nav.navbar.navbar-default
       .container-fluid(style="max-width: 1000px")
         .navbar-header
-          a.navbar-brand(href="#")
+          a.navbar-brand(href="/")
             img(src="/images/logo_initials.png", style="height: 26px;")
+        ul.nav.navbar-nav
+          li 
+            a(href="#") 
+              span.glyphicon.glyphicon-home(style="margin-right: 5px")
+              span Homepage
+          li
+            a(href="#") 
+              span.glyphicon.glyphicon-th-list(style="margin-right: 5px")
+              span Browse
         .navbar-form.navbar-right  
           div.navbar-header
-            button.btn.btn-primary Feedback
-            button.btn.btn-success(style="margin-left: 5px") Add an asset
+            button.btn.btn-primary 
+              span.glyphicon.glyphicon-envelope(style="margin-right: 5px")
+              span Feedback
+            a(href="/add")
+              button.btn.btn-success(style="margin-left: 5px") 
+                span.glyphicon.glyphicon-plus(style="margin-right: 5px")
+                span Add an asset
     #content
       block content

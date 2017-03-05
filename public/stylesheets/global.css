@@ -1,6 +1,17 @@
+body {
+  background-image: url("http://combiboilersleeds.com/images/blueprint/blueprint-2.jpg"); }
+
 #content {
   margin: auto;
   max-width: 1000px;
   padding: 50px; }
+
+.panel-heading span {
+  font-size: 16pt; }
+
+.panel .result h3 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14pt; }
 
 /*# sourceMappingURL=global.css.map */

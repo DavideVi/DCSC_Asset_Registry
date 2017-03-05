@@ -1,0 +1,65 @@
+extends layout
+
+block content
+    .panel.panel-default(style="max-width: 600px; margin: auto")
+      .panel-heading
+        span List a new asset to the registry
+      .panel-body
+        form
+          .form-group
+            label.control-label(for="") Asset name
+            input.form-control(type="text", placeholder="e.g. Perl Mongo Migrator")
+            small The name of the asset you would like to list
+          .form-group
+            label.control-label(for="") Asset purpose
+            textarea.form-control(placeholder="e.g. This script migrates Mongo databases using Perl")
+            small Try to follow a simple "subject-verb-direct object" structure as this is used as part of the search engine
+          .form-group
+            label.control-label(for="") Author IDs
+            input.form-control(type="text", placeholder="e.g. leia.solo; john.smith;")
+            small You may separate author names using a semicolon (;)
+          .form-group
+            label.control-label(for="") Technologies
+            input.form-control(type="text", placeholder="e.g. perl; mongo; bash;")
+            small You may separate technologies using semincolons (;)
+          .form-group
+            label.control-label Stability
+            br
+            small Pick the option that most accurately describes the state of your asset
+            .radio
+              label
+                input.form-check-input(type="radio") 
+                span Not functional - Could be used for inspiration / code snippets
+            .radio
+              label
+                input.form-check-input(type="radio") 
+                span Functional but buggy
+            .radio
+              label
+                input.form-check-input(type="radio") 
+                span Functional but not heavily tested
+            .radio
+              label
+                input.form-check-input(type="radio") 
+                span Frequently used without issues
+            .radio
+              label
+                input.form-check-input(type="radio") 
+                span Heavily used and tested
+          .form-group
+            label.control-label(for="") Source code management link
+            input.form-control(type="text", placeholder="e.g. https://github.com/DavideVi/Perl_Mongo_Migrator")
+            small Link to the Innersource / GitHub page. Repository must have read permissions to the public.     
+          .form-group
+            label.control-label(for="") Documentation / Wiki link
+            input.form-control(type="text", placeholder="e.g. https://github.com/DavideVi/Perl_Mongo_Migrator")
+            small Link to a page/website/wiki that explains how the asset works
+      .panel-footer
+        button.btn.btn-danger Clear
+        button.btn.btn-primary.pull-right Submit
+
+        //- 
+        //- <label for="exampleInputEmail1">Email address</label>
+        //-     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        //-     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        //-   </div>

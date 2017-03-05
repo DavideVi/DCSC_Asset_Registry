@@ -2,7 +2,46 @@ extends layout
 
 block content
     .input-group.input-group-lg
-      span.input-group-addon Search
+      span.input-group-addon 
+        span.glyphicon.glyphicon-search(style="margin-right: 5px")
+        span Search
       input.form-control(type="text", placeholder="Search for an asset...")
-    span.help-block.
+    span.help-block(style="color:#FFF").
       For an efficient search focus on using verbs, nouns and keywords (e.g. "migrate database python") 
+    .row(style="max-width: 600px; margin: auto; padding-top: 20px")
+      .panel.panel-default
+        .panel-body.result
+          div.pull-right(style="color: orange; font-size: 14pt")
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star-empty
+            span.glyphicon.glyphicon-star-empty
+          h3
+            span Perl Mongo Migrator 
+            small
+              .label.label-danger(style="margin-left: 5px") Unstable
+          .help-block This script migrates mongo databases using Perl
+          .label.label-success(style="margin-right: 5px") mongo
+          .label.label-info(style="margin-right: 5px") perl
+          .label.label-primary(style="margin-right: 5px") databases
+          .label.label-info(style="margin-right: 5px") bash
+          
+      .panel.panel-default
+        .panel-body.result
+          div.pull-right(style="color: orange; font-size: 14pt")
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-star-empty
+            span.glyphicon.glyphicon-star-empty
+          h3
+            span Perl Mongo Migrator 
+            small
+              .label.label-danger(style="margin-left: 5px") Unstable
+          .help-block This script migrates mongo databases using Perl
+          .label.label-success(style="margin-right: 5px") mongo
+          .label.label-info(style="margin-right: 5px") perl
+          .label.label-primary(style="margin-right: 5px") databases
+          .label.label-info(style="margin-right: 5px") bash          
+      img(src='http://icon-park.com/imagefiles/loading7_light_blue.gif', style="max-width:20px; margin: auto")
