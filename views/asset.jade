@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  script(src="/controllers/asset.js")
+  script.
+    var asset_id = "#{asset_id}";
+  .panel.panel-default(style="max-width: 600px; margin: auto")
+    .panel-body.result
+      div.pull-right(style="color: orange; font-size: 14pt")
+        span.glyphicon.glyphicon-star
+        span.glyphicon.glyphicon-star
+        span.glyphicon.glyphicon-star
+        span.glyphicon.glyphicon-star-empty
+        span.glyphicon.glyphicon-star-empty
+      h1
+        span#asset-name
+        small
+          .label.label-danger(style="margin-left: 5px")#stability
+      h3#author-ids
+      p#asset-purpose    
+      span.label.label-success#technologies
+      p SCM-Link:
+        a#scm-link SCM-Link
+      p Wiki-Link:
+        a#wiki-link Wiki-link      
+      
+  

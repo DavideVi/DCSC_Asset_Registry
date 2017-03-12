@@ -62,13 +62,13 @@ router.get('/asset/get/:asset_id', function(req, res, next) {
         return res.status(500).json({"status": "error", "message": "Invalid ID"});
       }
       else {
-        return res.json(doc);
+        return res.json(doc[0]);
       }
   })
 });
 
 // Returns a list of assets
-router.get('/asset/list', function(req, res, next) {
+router.get('/list', function(req, res, next) {
 
   var collection = req.db.get('assets');
   collection.find({}, '-asset_purpose -author_ids -technologies -stability -scm_link -wiki_link', function (err, doc) {
@@ -79,7 +79,7 @@ router.get('/asset/list', function(req, res, next) {
       else {
         return res.json(doc);
       }
-  })
+  }).limit(10)
 });
 
 // Updates information regarding an asset
