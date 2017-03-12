@@ -5,27 +5,29 @@ function validate_req_body(to_validate){
   for (var key_name in to_validate)
   {
     if (to_validate[key_name] === undefined) {
+      console.log(key_name);
       return key_name;
     }
   }
+  console.log("ok:" + key_name);
   return null;
 }
 
 // Adds an asset
 router.post('/asset/add', function(req, res, next) {
     var asset_data = {"asset_name": req.body.asset_name,
-                            "asset_purpose": req.body.asset_purpose,
-                            "author_ids": req.body.author_ids,
-                            "technologies": req.body.technologies,
-                            "stability": req.body.stability,
-                            "scm_link": req.body.scm_link,
-                            "wiki_link": req.body.wiki_link
+                      "asset_purpose": req.body.asset_purpose,
+                      "author_ids": req.body.author_ids,
+                      "technologies": req.body.technologies,
+                      "stability": req.body.stability,
+                      "scm_link": req.body.scm_link,
+                      "wiki_link": req.body.wiki_link
     };
 
-    var key_name = validate_req_body(asset_data);
-    if (key_name !== null) {
-      return res.status(400).json({"error": key_name + " has not been set"});
-    }
+    // var key_name = validate_req_body(asset_data);
+    // if (key_name !== null) {
+    //   return res.status(400).json({"error": key_name + " has not been set"});
+    // }
 
     var collection = req.db.get('assets');
 
