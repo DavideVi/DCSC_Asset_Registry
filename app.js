@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('database:27017/asset_registry');
+var db = monk('52.56.96.118:27017/asset_registry');
 
 var index = require('./routes/index');
 var api = require('./routes/api');
@@ -33,7 +33,7 @@ app.use(function(req,res,next){
 });
 
 app.use('/', index);
-app.use('/api', api);
+app.use('/api/', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
