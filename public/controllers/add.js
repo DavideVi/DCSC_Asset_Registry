@@ -20,18 +20,16 @@ $(document).ready(function() {
   $.ajax({
       url: '/api/asset/add',
       type: 'post',
-      data: {
-        asset_name: asset_name,
-        asset_purpose: asset_purpose,
-        author_ids: author_ids,
-        technologies: technologies,
-        stability: "0",
-        scm_link: scm_link,
-        wiki_link: wiki_link
-      },
-      headers: {
-        "Content-Type": "application/json"
-      },
+      contentType: "application/json",
+      data:  JSON.stringify({
+        'asset_name': asset_name,
+        'asset_purpose': asset_purpose,
+        'author_ids': author_ids,
+        'technologies': technologies,
+        'stability': "0",
+        'scm_link': scm_link,
+        'wiki_link': wiki_link
+      }),
       dataType: 'json',
       success: function (data) {
           console.info(data);
