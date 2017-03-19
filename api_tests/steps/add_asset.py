@@ -27,7 +27,7 @@ def step_impl(context):
 def step_impl(context):
     context.response = requests.post(ENDPOINT + "/asset/add", data=context.payload)
 
-@then('the request should succeed')
+@then('the request should succeed and return asset ID')
 def step_impl(context):
     assert context.response.status_code is 200
 

@@ -6,7 +6,7 @@ Feature: Add an asset
   Scenario: Valid request
     Given we have valid information regarding an asset
     When we request to add an asset
-    Then the request should succeed
+    Then the request should succeed and return asset ID
 
   Scenario: Missing data
     Given we have asset information that is missing mandatory data

@@ -47,6 +47,9 @@ $(document).ready(function() {
           dataType: 'json',
           success: function (data) {
               console.info(data);
+          }, error: function (data) {
+            $("#validation-message").removeClass("hidden");
+            $("#validation-message").html("Asset could not be added. Please try again later.<br/>"+data.status+"<br/>"+data.responseText);
           }
       }); //ajax
     }
