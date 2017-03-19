@@ -24,10 +24,10 @@ router.post('/asset/add', function(req, res, next) {
                       "wiki_link": req.body.wiki_link
     };
 
-    // var key_name = validate_req_body(asset_data);
-    // if (key_name !== null) {
-    //   return res.status(400).json({"error": key_name + " has not been set"});
-    // }
+    var key_name = validate_req_body(asset_data);
+    if (key_name !== null) {
+      return res.status(400).json({"error": key_name + " has not been set"});
+    }
 
     var collection = req.db.get('assets');
 

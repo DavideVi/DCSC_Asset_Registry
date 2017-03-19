@@ -4,7 +4,7 @@ Feature: Add an asset
   I want to be able to add an asset
 
   Scenario: Valid request
-    Given we have valid information regarding the asset
+    Given we have valid information regarding an asset
     When we request to add an asset
     Then the request should succeed
 

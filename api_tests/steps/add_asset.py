@@ -1,13 +1,14 @@
 from behave import *
-import requests
+import requests, os
 
-ENDPOINT = "http://52.56.141.168/api"
+ENDPOINT = os.environ['ASSET_REG_ENDPOINT']
+# ENDPOINT = "http://52.56.141.168/api"
 
-@given('we have valid information regarding the asset')
+@given('we have valid information regarding an asset')
 def step_impl(context):
     context.payload = {
-        "asset_name": "",
-        "asset_purpose": "",
+        "asset_name": "Perl Mongo Migrator",
+        "asset_purpose": "This script migrates mongo databases using Perl",
         "author_ids": [
             "leia.solo",
             "john.smith"
