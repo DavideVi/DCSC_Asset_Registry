@@ -1,12 +1,33 @@
+# Framework
 from framework.driver import Driver
+from framework.test_blocked_exception import TestBlockedException
+from framework.logger import Logger
 
-from page.menu import MenuBar
+# Pages
+from pages.menu import MenuBar
+from pages.add_asset import AddAssetPage
 
 ENDPOINT = "http://52.56.141.168/"
 
+# Actual test journey
+try:
+    driver = Driver()
 
-driver = Driver()
-driver.load_url(ENDPOINT)
-# elm = driver.get_element("test")
+    # We go to the homepage
+    driver.load_url(ENDPOINT)
 
-MenuBar.click_add_asset(driver)
+    # We click on the 'Add asset button'
+    MenuBar.click_add_asset(driver)
+
+    # We complete the form
+    AddAssetPage.complete_form(driver, "asset_form.valid_asset.json")
+
+    # We submit the form
+    AddAssetPage.submit_form(driver)
+
+    # We should end up on the asset page
+
+    driver.close()
+
+except TestBlockedException:
+    Logger.log_blocked("Test has been blocked. Cannot continue")

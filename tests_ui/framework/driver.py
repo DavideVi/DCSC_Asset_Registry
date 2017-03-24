@@ -9,14 +9,16 @@ from test_blocked_exception import TestBlockedException
 class Driver():
 
     def __init__(self):
+        Logger.log_info("Initialising driver")
         self.driver = webdriver.Chrome('/Users/davide/chromedriver')
 
     def load_url(self, url):
+        Logger.log_info("Loading URL: " + url)
         self.driver.get(url)
 
     def get_element(self, element, blocker=False):
         try:
-            return Element(self.driver.find_element_by_id(element))
+            return Element(self.driver.find_element_by_id(element), element)
         except NoSuchElementException:
             if blocker:
                 Logger.log_blocked("Could not find element: #" + element)
@@ -24,5 +26,5 @@ class Driver():
             else:
                 Logger.log_fail("Cloud not find element: #" + element)
 
-    def close():
+    def close(self):
         self.driver.close()

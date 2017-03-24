@@ -13,20 +13,20 @@ class Logger():
 
     @staticmethod
     def log_info(message):
-        print bcolors.OKBLUE + "[INFO]\t" + message
+        print bcolors.OKBLUE + "[INFO]\t" + str(message) + bcolors.ENDC
 
     @staticmethod
     def log_warn(message):
-        print bcolors.WARNING + "[WARN]\t" + message + bcolors.ENDC
+        print bcolors.WARNING + "[WARN]\t" + str(message) + bcolors.ENDC
 
     @staticmethod
     def log_fail(message):
-        print bcolors.FAIL + "[FAIL]\t" + message + bcolors.ENDC
+        print bcolors.FAIL + "[FAIL]\t" + str(message) + bcolors.ENDC
 
     @staticmethod
     def log_blocked(message):
-        print bcolors.FAIL + "[BLCK]\t" + message
+        print bcolors.FAIL + "[BLCK]\t" + str(message) + bcolors.ENDC
 
     @staticmethod
     def log_error(message):
-        print bcolors.FAIL + "[ERRO]\t" + message
+        print bcolors.FAIL + "[ERRO]\t" + str(message) + bcolors.ENDC
