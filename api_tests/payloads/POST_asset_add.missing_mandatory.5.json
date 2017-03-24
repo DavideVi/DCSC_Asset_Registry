@@ -1,0 +1,12 @@
+{
+      "author_ids": [
+          "leia.solo",
+          "john.smith"
+          ],
+      "technologies": [
+          "mongo",
+          "perl",
+          "bash"
+          ],
+      "wiki_link": "http://wiki.com/project"
+  }

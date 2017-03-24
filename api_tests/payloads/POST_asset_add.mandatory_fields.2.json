@@ -1,0 +1,10 @@
+{
+      "asset_name": "Perl Mongo Migrator",
+      "asset_purpose": "This script migrates mongo databases using Perl",
+      "author_ids": [
+          "leia.solo",
+          "john.smith"
+          ],
+      "stability": 0,
+      "scm_link": "http://scm.com/project.git"
+  }
