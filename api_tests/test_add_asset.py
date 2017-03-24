@@ -55,3 +55,20 @@ for i in range(0, 6):
     if response is not None:
         # Then the request should return Bad Request
         assert_eq(response.status_code, 400, "Response code is 400")
+        # and the asset should NOT appear in the database
+        assert_eq(True, False, "Asset should NOT appear in database (Not Implemented)")
+
+# ==============================================================================
+
+out_header("Wrong data format")
+
+for i in range(0, 5):
+    # Given we have asset information that has data in an invalid format
+    # When we request to add an asset
+    response = make_request(ASSET_ADD, "POST_asset_add.invalid_format." + str(i) + ".json")
+
+    if response is not None:
+        # Then the request should return Bad Request
+        assert_eq(response.status_code, 400, "Response code is 400")
+        # and the asset should NOT appear in the database
+        assert_eq(True, False, "Asset should NOT appear in database (Not Implemented)")
