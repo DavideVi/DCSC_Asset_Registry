@@ -10,24 +10,24 @@ html
       .container-fluid(style="max-width: 1000px")
         .navbar-header
           a.navbar-brand(href="/")
-            img(src="/images/logo_initials.png", style="height: 26px;")
+            img#logo(src="/images/logo_initials.png", style="height: 26px;")
         ul.nav.navbar-nav
-          li 
+          li#homepage-menu-btn
             a(href="#") 
               span.glyphicon.glyphicon-home(style="margin-right: 5px")
               span Homepage
-          li
+          li#browse-menu-btn
             a(href="/laura") 
               span.glyphicon.glyphicon-th-list(style="margin-right: 5px")
               span Browse
         .navbar-form.navbar-right  
           div.navbar-header
             a(href="/feedback")
-              button.btn.btn-primary 
+              button#feedback-btn.btn.btn-primary 
                 span.glyphicon.glyphicon-envelope(style="margin-right: 5px")
                 span Feedback
             a(href="/add")
-              button.btn.btn-success(style="margin-left: 5px") 
+              button#add-asset-btn.btn.btn-success(style="margin-left: 5px") 
                 span.glyphicon.glyphicon-plus(style="margin-right: 5px")
                 span Add an asset
     #content
