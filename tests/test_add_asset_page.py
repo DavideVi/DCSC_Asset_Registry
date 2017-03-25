@@ -53,6 +53,9 @@ class TestAddAssetPage(unittest.TestCase):
             # Validation message should state that fields are empty
             assert "Field is empty" in AddAssetPage.get_validation_message(self.driver)
 
+    '''
+    Some values that make no sense/break the system should not be allowed
+    '''
     def test_invalid_formatting(self):
 
         invalid_values = DataProvider.get_data("generic.invalid_values.json")
