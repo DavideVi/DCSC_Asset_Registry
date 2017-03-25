@@ -1,6 +1,8 @@
 {
   "asset-name": "Selenium Automated Test",
   "asset-purpose": "Purpose is to test the UI through Selenium",
+  "author-ids": "davide.vitelaru; teodor.i.zangur",
   "technologies": "python; selenium;",
-  "scm-link": "https://github.com/DavideVi/DCSC_Asset_Registry",
+  "scm-link": "",
+  "wiki-link": "https://github.com/DavideVi/DCSC_Asset_Registry"
 }

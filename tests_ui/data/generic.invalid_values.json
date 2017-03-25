@@ -1,0 +1,27 @@
+{
+  "text-fields": [
+    " ",
+    "  ",
+    "   ",
+    "    ",
+    "123",
+    "!@#",
+    "123!@#",
+    "Лорем ипсум долор сит амет"
+  ],
+  "non-http-urls": [
+    "ftp://github.com/DavideVi/DCSC_Asset_Registry",
+    "ssh://github.com/DavideVi/DCSC_Asset_Registry"
+  ],
+  "lists": [
+    " ",
+    "  ",
+    "    ",
+    ";",
+    " ;",
+    "; ",
+    "john; ;",
+    ";;;",
+    ";john"
+  ]
+}
