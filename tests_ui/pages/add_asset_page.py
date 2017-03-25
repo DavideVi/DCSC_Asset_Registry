@@ -5,6 +5,8 @@ class AddAssetPage():
     @staticmethod
     def complete_form(driver, data_file):
 
+        AddAssetPage.clear_form(driver)
+
         data = DataProvider.get_data(data_file)
 
         driver.get_element("asset-name").send_keys(data["asset-name"])
@@ -18,3 +20,12 @@ class AddAssetPage():
     def submit_form(driver):
 
         driver.get_element("btn-submit").click()
+
+    @staticmethod
+    def clear_form(driver):
+        driver.get_element("asset-name").clear()
+        driver.get_element("asset-purpose").clear()
+        driver.get_element("author-ids").clear()
+        driver.get_element("technologies").clear()
+        driver.get_element("scm-link").clear()
+        driver.get_element("wiki-link").clear()

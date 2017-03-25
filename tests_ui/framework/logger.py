@@ -12,8 +12,12 @@ class bcolors:
 class Logger():
 
     @staticmethod
+    def log_head(message):
+        print bcolors.HEADER + "== " + str(message) + " ==" + bcolors.ENDC
+
+    @staticmethod
     def log_info(message):
-        print bcolors.OKBLUE + "[INFO]\t" + str(message) + bcolors.ENDC
+        print bcolors.OKBLUE + "[INFO]\t" + bcolors.ENDC + str(message)
 
     @staticmethod
     def log_warn(message):
@@ -30,3 +34,14 @@ class Logger():
     @staticmethod
     def log_error(message):
         print bcolors.FAIL + "[ERRO]\t" + str(message) + bcolors.ENDC
+
+    @staticmethod
+    def log_success(message):
+        print bcolors.OKGREEN + "[OK  ]\t" + bcolors.ENDC + str(message)
+
+    @staticmethod
+    def log_assert(logic_op, message):
+        if (logic_op):
+            log_success(message)
+        else:
+            log_fail(message)

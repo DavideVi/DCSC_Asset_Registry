@@ -19,3 +19,6 @@ class Element():
             self.element.send_keys(keys)
         except Exception:
             Logger.log_fail("Could not send '" + str(keys) + "' to element '" + self.name + "'")
+
+    def clear(self):
+        self.element.clear()
