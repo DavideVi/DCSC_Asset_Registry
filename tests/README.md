@@ -10,6 +10,7 @@ API and Selenium Tests for the DCSC Asset Registry
 - Install NoseTests `pip install nose`
 
 **Usage:**
+
 Set up environment variables
 - `export AR_ENDPOINT="http://your_endpoint_here"`
 
