@@ -1,4 +1,4 @@
-import unittest
+import unittest, os
 
 from selenium import webdriver
 from data_provider import DataProvider
@@ -8,13 +8,14 @@ from pages.menu import MenuBar
 from pages.add_asset_page import AddAssetPage
 from pages.asset_page import AssetPage
 
-ENDPOINT = "http://52.56.141.168/"
+AR_ENDPOINT = os.environ['AR_ENDPOINT']
+ENDPOINT = AR_ENDPOINT + "/add"
 
 class TestAddAssetPage(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.PhantomJS('/Users/davide/phantomjs-2.1.1-macosx/bin/phantomjs')
-        self.driver.get(ENDPOINT + "add")
+        self.driver = webdriver.PhantomJS()
+        self.driver.get(ENDPOINT)
 
     '''
     Valid asset information should obviously be accepted

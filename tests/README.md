@@ -13,7 +13,11 @@ API and Selenium Tests for the DCSC Asset Registry
 
 Set up environment variables
 - `export AR_ENDPOINT="http://your_endpoint_here"`
+- Do not add a `/` at the end
 
 Run all the tests
 - `cd tests`
 - `nosetests`
+
+Run individual tests
+- `python <test to run>.py`

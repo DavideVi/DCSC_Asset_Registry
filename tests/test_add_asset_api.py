@@ -2,9 +2,8 @@ import unittest, requests, os, json
 
 from data_provider import DataProvider
 
-
-ENDPOINT = "http://52.56.141.168/api/asset/add"
-
+AR_ENDPOINT = os.environ['AR_ENDPOINT']
+ENDPOINT = AR_ENDPOINT + "/api/asset/add"
 
 class TestAddAssetAPI(unittest.TestCase):
 
