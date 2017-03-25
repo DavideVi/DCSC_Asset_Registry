@@ -1,7 +1,6 @@
-# Framework
-from framework.driver import Driver
-from framework.test_blocked_exception import TestBlockedException
-from framework.logger import Logger
+import unittest
+
+from selenium import webdriver
 
 # Pages
 from pages.menu import MenuBar
@@ -10,37 +9,37 @@ from pages.asset_page import AssetPage
 
 ENDPOINT = "http://52.56.141.168/"
 
-def run_test_case(test_case):
-    Logger.log_head(test_case)
-    try:
-        # New driver
-        driver = Driver()
-        driver.load_url(ENDPOINT + "add")
-        test_case(driver)
+class TestAddAsset(unittest.TestCase):
 
-    except TestBlockedException:
-        Logger.log_blocked("Test has been blocked. Cannot continue")
+    def setUp(self):
+        self.driver = webdriver.PhantomJS('/Users/davide/phantomjs-2.1.1-macosx/bin/phantomjs')
+        self.driver.get(ENDPOINT + "add")
 
-    finally:
-        driver.close()
+    def test_valid_asset(self):
+        AddAssetPage.complete_form(self.driver, "asset_form.valid_asset.json")
+        AddAssetPage.submit_form(self.driver)
 
-def tc_valid_asset(driver):
-    AddAssetPage.complete_form(driver, "asset_form.valid_asset.json")
-    AddAssetPage.submit_form(driver)
+        assert "/asset/" in self.driver.current_url
 
-def tc_all_fields_missing(driver):
-    pass
+    def test_all_fields_missing(self):
+        pass
 
-def tc_mandatory_fields_empty(driver):
-    AddAssetPage.complete_form(driver, "asset_form.missing_mandatory.json")
-    AddAssetPage.submit_form(driver)
-    pass
+    def test_mandatory_fields_empty(self):
+        AddAssetPage.complete_form(self.driver, "asset_form.missing_mandatory.json")
+        AddAssetPage.submit_form(self.driver)
 
-def tc_only_mandatory_fields(driver):
-    pass
+        # Submision should not be successful
+        assert "/add" in self.driver.current_url
 
-def tc_invalid_formatting(driver):
-    pass
 
-run_test_case(tc_valid_asset)
-run_test_case(tc_mandatory_fields_empty)
+    def test_only_mandatory_fields(self):
+        pass
+
+    def test_invalid_formatting(self):
+        pass
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == '__main__':
+    unittest.main()

@@ -23,5 +23,5 @@ class MenuBar():
 
     @staticmethod
     def click_add_asset(driver):
-        elm = driver.get_element("add-asset-btn")
+        elm = driver.find_element_by_id("add-asset-btn")
         elm.click()
