@@ -35,21 +35,21 @@ router.post('/asset/add', function(req, res, next) {
     var scm_link =req.body.scm_link;
     var wiki_link = req.body.wiki_link;
 
-    // var string_data = {asset_name,
-    //                    asset_purpose,
-    //                    scm_link,
-    //                    wiki_link
-    // };
+    var string_data = {asset_name,
+                       asset_purpose,
+                       scm_link,
+                       wiki_link
+    };
 
-    if (technologies.constructor !== Array){
-      technologies = [];
-    }
-    if (author_ids.constructor !== Array){
-      author_ids = [];
-    }
-    if (wiki_link === undefined) {
-      wiki_link = "";
-    }
+    // if (technologies.constructor !== Array){
+    //   technologies = [];
+    // }
+    // if (author_ids.constructor !== Array){
+    //   author_ids = [];
+    // }
+    // if (wiki_link === undefined) {
+    //   wiki_link = "";
+    // }
     var asset_data = {"asset_name": asset_name,
                       "asset_purpose": asset_purpose,
                       "author_ids": author_ids,
