@@ -7,7 +7,13 @@ var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('52.56.96.118:27017/asset_registry');
+
+if (process.env.MONGODB_URI !== undefined) {
+  db = monk(process.env.MONGODB_URI);
+} else {
+  // database provided by docker-compose
+  db = monk('database:27017/asset_registry');
+}
 
 var index = require('./routes/index');
 var api = require('./routes/api');
