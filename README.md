@@ -11,12 +11,11 @@ Application can be deployed for both production and development.
 
 **Requirements:**
 
-- Vagrant
+- [Vagrant](https://www.vagrantup.com)
 
-Simply run `vagrant up` inside the root folder.
-
-To start the server go to `/vagrant` and type: `npm start`. The server will
-automatically connect to the database within Vagrant.
+Run `vagrant up` in the root folder to start Vagrant.
+Run `vagrant ssh` to go inside the Vagrant machine.
+To start the server, `cd /vagrant` and then `npm start`. The server will automatically connect to the database within Vagrant.
 
 To access the web application, navigate to `localhost:3000` in your browser.
 The database is also accessible on `localhost:27017` if you wish to access it
@@ -26,7 +25,7 @@ in Robomongo.
 
 **Requirements:**
 
-- Docker
+- [Docker](https://www.docker.com)
 - Docker-Compose `1.6+`
 
 To deploy run `docker-compose up` in the root folder.
