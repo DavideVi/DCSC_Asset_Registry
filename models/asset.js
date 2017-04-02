@@ -39,6 +39,33 @@ Asset.prototype.insert = function(db, payload, success, error) {
   });
 }
 
+Asset.prototype.get = function(db, asset_id, success, error) {
+
+  // Validation
+  if (asset_id === undefined) {
+    error(400, "asset_id has not been set");
+    return;
+  }
+
+  // DB Retrieval
+  var mongo = require('mongodb');
+  var asset_id = new mongo.ObjectID(asset_id);
+
+  var collection = db.get('assets');
+  collection.find({
+    _id: asset_id
+  }, function (err, doc) {
+
+      if (err) {
+        error(500,"Invalid ID has been provided");
+      }
+      else {
+        success(doc[0]);
+      }
+  })
+}
+
+// Helper method, validates for for insert and update
 Asset.prototype.validate = function(payload) {
 
   var validator = require('./validator');

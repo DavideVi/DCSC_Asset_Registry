@@ -14,11 +14,9 @@ router.post('/asset/add', function(req, res, next) {
   asset.insert(req.db, req.body,
     function(asset_id) {
       return res.json({"status": "ok", "asset_id": asset_id });
-      console.log("madafaka");
     },
     function(code, message) {
       return res.status(code).json({"status": "error", "message": message});
-      console.log("madafaka");
     });
 
 });
@@ -26,25 +24,14 @@ router.post('/asset/add', function(req, res, next) {
 // Returns asset information
 router.get('/asset/get/:asset_id', function(req, res, next) {
 
-  if (req.params.asset_id === undefined) {
-    return res.status(400).json({"error": asset_id + " has not been set or is invalid"});
-  }
+  asset.get(req.db, req.params.asset_id,
+    function(asset) {
+      return res.json(asset);
+    },
+    function(code, message) {
+      return res.status(code).json({"status": "error", "message": message});
+    });
 
-  var mongo = require('mongodb');
-  var asset_id = new mongo.ObjectID(req.params.asset_id);
-
-  var collection = req.db.get('assets');
-  collection.find({
-    _id: asset_id
-  }, function (err, doc) {
-
-      if (err) {
-        return res.status(500).json({"status": "error", "message": "Invalid ID"});
-      }
-      else {
-        return res.json(doc[0]);
-      }
-  })
 });
 
 // Returns a list of assets
