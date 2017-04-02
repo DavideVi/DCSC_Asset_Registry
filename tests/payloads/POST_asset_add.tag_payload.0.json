@@ -1,0 +1,20 @@
+{
+      "asset_name": "Perl Mongo Migrator",
+      "asset_purpose": "This is a script. It is used for fast deployment, for migrating, to provision and for patching bugs in the large system",
+      "author_ids": [
+          "santa.claus",
+          "jon.snow",
+          "elon.musk",
+          "darth.vader"
+          ],
+      "technologies": [
+          "mongo",
+          "python",
+          "bash",
+          "shell",
+          "perl"
+          ],
+      "stability": 0,
+      "scm_link": "http://scm.com/project.git",
+      "wiki_link": "http://wiki.com/project"
+  }

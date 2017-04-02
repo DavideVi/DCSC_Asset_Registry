@@ -24,3 +24,4 @@ ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
 
 # Search engine CoreNLP
 docker run --name corenlp --restart=always -p 9000:9000  -d motiz88/corenlp
+echo "export NLP_ENDPOINT='http://localhost:9000'" >> /home/ubuntu/.bashrc
