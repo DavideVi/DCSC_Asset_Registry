@@ -22,8 +22,8 @@ class TestTaggingSystem(unittest.TestCase):
         client = MongoClient('mongodb://' + database_uri[0])
         self.db = client[database_uri[1]]
 
-        # self.db.tags.delete_many({})
-        # self.db.assets.delete_many({})
+        self.db.tags.delete_many({})
+        self.db.assets.delete_many({})
 
     '''
     Checks whether author tags are generated when we add an asset
@@ -43,10 +43,15 @@ class TestTaggingSystem(unittest.TestCase):
             if doc["value"] in payload["author_ids"]:
                 found_count += 1
 
+        # Higher number means duplicates
+        # Lower number means not generated
         self.assertEqual(len(payload["author_ids"]), found_count)
 
-        # result = self.db.tags.find({'type': 'author', 'tagged': { "$in" : [response_one.json()["asset_id"]] }}).count()
-        # self.assertEqual(1, result, "Tag has been generated but asset has not been tagged")
+        # Should find one if assets get tagged
+        result = self.db.tags.find({'type': 'author', 'tagged': { "$in" : [response_one.json()["asset_id"]] }}).count()
+        self.assertEqual(1, result, "Tag has been generated but asset has not been tagged: Found:" + str(result) + "; Expected: 1")
+        result = self.db.tags.find({'type': 'author', 'tagged': { "$in" : [response_two.json()["asset_id"]] }}).count()
+        self.assertEqual(1, result, "Tag has been generated but asset has not been tagged: Found:" + str(result) + "; Expected: 1")
 
     '''
     Checks whether technology tags are generated when we add an asset
@@ -66,7 +71,16 @@ class TestTaggingSystem(unittest.TestCase):
             if doc["value"] in payload["technologies"]:
                 found_count += 1
 
+        # Higher number means duplicates
+        # Lower number means not generated
         self.assertEqual(len(payload["technologies"]), found_count)
+
+        # Should find one if assets get tagged
+        result = self.db.tags.find({'type': 'technology', 'tagged': { "$in" : [response_one.json()["asset_id"]] }}).count()
+        self.assertEqual(1, result, "Tag has been generated but asset has not been tagged: Found:" + str(result) + "; Expected: 1")
+        result = self.db.tags.find({'type': 'technology', 'tagged': { "$in" : [response_two.json()["asset_id"]] }}).count()
+        self.assertEqual(1, result, "Tag has been generated but asset has not been tagged: Found:" + str(result) + "; Expected: 1")
+
 
     '''
     Checks whether NLP tags are generated when we add an asset
@@ -96,7 +110,16 @@ class TestTaggingSystem(unittest.TestCase):
             if doc["value"] in expected_tags:
                 found_count += 1
 
+        # Higher number means duplicates
+        # Lower number means not generated
         self.assertEqual(len(expected_tags), found_count, "NLP tags not extracted correctly: Found " + str(found_count) + "; Expected: " + str(len(expected_tags)))
+
+        # Should find one if assets get tagged
+        result = self.db.tags.find({'type': 'NLP', 'tagged': { "$in" : [response_one.json()["asset_id"]] }}).count()
+        self.assertEqual(1, result, "Tag has been generated but asset has not been tagged: Found:" + str(result) + "; Expected: 1")
+        result = self.db.tags.find({'type': 'NLP', 'tagged': { "$in" : [response_two.json()["asset_id"]] }}).count()
+        self.assertEqual(1, result, "Tag has been generated but asset has not been tagged: Found:" + str(result) + "; Expected: 1")
+
 
 
 if __name__ == '__main__':
