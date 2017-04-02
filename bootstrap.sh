@@ -12,7 +12,7 @@ echo "export MONGODB_URI='localhost:27017/asset_registry'" >> /home/ubuntu/.bash
 
 # Test environment
 apt-get -y install python-pip
-pip install selenium nose requests
+pip install selenium nose requests pymongo
 echo "export AR_ENDPOINT='http://localhost:3000'" >> /home/ubuntu/.bashrc
 
 # PhantomJS set-up
