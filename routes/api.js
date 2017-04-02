@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+/*
+ Models
+*/
+var model_asset = require('../models/asset');
+var asset = new model_asset.Asset();
+
 function validate_req_body(to_validate){
   for (var key_name in to_validate)
   {
