@@ -30,7 +30,7 @@ Asset.prototype.insert = function(db, payload, success, error) {
   collection.insert(new_doc, function (err, doc) {
 
     if (err) {
-      error(500,"There was a problem creating a session");
+      error(500,err);
       return;
     }
     else {
@@ -57,12 +57,29 @@ Asset.prototype.get = function(db, asset_id, success, error) {
   }, function (err, doc) {
 
       if (err) {
-        error(500,"Invalid ID has been provided");
+        error(500,err);
       }
       else {
         success(doc[0]);
       }
   })
+}
+
+Asset.prototype.list = function(db, success, error) {
+
+  var collection = db.get('assets');
+  collection.find({}, {limit: 10, fields: '-asset_purpose -author_ids -technologies -stability -scm_link -wiki_link'},
+    function (err, doc) {
+      if (err) {
+        error(500, err);
+        return;
+      }
+      else {
+        success(doc);
+        return;
+      }
+  })
+
 }
 
 // Helper method, validates for for insert and update
@@ -93,5 +110,6 @@ Asset.prototype.validate = function(payload) {
 
   return validator.errors;
 }
+
 
 module.exports.Asset = Asset;

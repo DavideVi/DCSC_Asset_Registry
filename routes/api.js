@@ -35,18 +35,16 @@ router.get('/asset/get/:asset_id', function(req, res, next) {
 });
 
 // Returns a list of assets
-router.get('/list', function(req, res, next) {
+router.get('/asset/list', function(req, res, next) {
 
-  var collection = req.db.get('assets');
-  collection.find({}, '-asset_purpose -author_ids -technologies -stability -scm_link -wiki_link', function (err, doc) {
+  asset.list(req.db,
+    function(results) {
+      return res.json(results);
+    },
+    function(code, message) {
+      return res.status(code).json({"status": "error", "message": message});
+    });
 
-      if (err) {
-        return res.status(500).json({"status": "error", "message": err});
-      }
-      else {
-        return res.json(doc);
-      }
-  }).limit(10)
 });
 
 // Updates information regarding an asset
