@@ -4,3 +4,4 @@
 *.log*
 *.DS_*
 *.vagrant*
+.idea
