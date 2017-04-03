@@ -15,7 +15,7 @@ class TestAddAssetAPI(unittest.TestCase):
         response = requests.post(ENDPOINT, data=payload)
 
         # assert response.status_code is 200
-        self.assertEqual(200, response.status_code)
+        self.assertEqual(200, response.status_code, str(response.status_code) + " " + response.text)
         try:
             self.assertNotEqual(None, response.json()["asset_id"])
         except KeyError:
@@ -29,7 +29,7 @@ class TestAddAssetAPI(unittest.TestCase):
             payload = DataProvider.get_payload("POST_asset_add.mandatory_fields." + str(i) + ".json")
             response = requests.post(ENDPOINT, data=payload)
 
-            self.assertEqual(200, response.status_code)
+            self.assertEqual(200, response.status_code, str(response.status_code) + " " + response.text)
             try:
                 self.assertNotEqual(None, response.json()["asset_id"])
             except KeyError:
@@ -43,7 +43,7 @@ class TestAddAssetAPI(unittest.TestCase):
             payload = DataProvider.get_payload("POST_asset_add.missing_mandatory." + str(i) + ".json")
             response = requests.post(ENDPOINT, data=payload)
 
-            self.assertEqual(400, response.status_code)
+            self.assertEqual(400, response.status_code, str(response.status_code) + " " + response.text)
             try:
                 asset_id = response.json()["asset_id"]
             except KeyError:
@@ -57,7 +57,7 @@ class TestAddAssetAPI(unittest.TestCase):
             payload = DataProvider.get_payload("POST_asset_add.invalid_format." + str(i) + ".json")
             response = requests.post(ENDPOINT, data=payload)
 
-            self.assertEqual(400, response.status_code)
+            self.assertEqual(400, response.status_code, str(response.status_code) + " " + response.text)
             try:
                 asset_id = response.json()["asset_id"]
             except KeyError:

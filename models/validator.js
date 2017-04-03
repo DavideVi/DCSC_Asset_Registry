@@ -34,19 +34,31 @@ Validator.decorators = {};
 */
 Validator.decorators.mandatory = {
     validate: function(field, name) {
-        this.errors.push(name + ' cannot be empty');
+      if (field === undefined) {
+        this.errors.push(field + ' cannot be underfined');
+      }
     }
 };
 
 Validator.decorators.is_string = {
     validate: function(field, name) {
+      if (field instanceof String) {
         this.errors.push(name + ' must be a string');
+      }
     }
 };
 
 Validator.decorators.text_format = {
     validate: function(field, name) {
-        this.errors.push(name + ' bad text format');
+      if (field.replace(" ","") === "") {
+        this.errors.push(name + ' cannot be empty or all spaces');
+      }
+      if (/^\d+$/.test(field)) {
+        this.errors.push(name + ' cannot be all numbers');
+      }
+      if(/^[a-zA-Z0-9- ]*$/.test(field) == false) {
+        this.errors.push(name + ' must contains some letters');
+      }
     }
 };
 
